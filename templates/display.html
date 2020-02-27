@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Display</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>Name</th>
+				<th>Username</th>
+				<th>Password</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for listUser in users %}
+			<tr>
+				<td>{{ listUser['id'] }}</td>
+				<td>{{ listUser['name'] }}</td>
+				<td>{{ listUser['username'] }}</td>
+				<td>{{ listUser['password'] }}</td>
+				<td>
+					<form method="post" action="/delete">
+						<input type="hidden" name="id" value="{{ listUser['id'] }}">
+						<input type="submit" value="Delete">
+					</form>
+				</td>
+				<td>
+					<form method="post" action="/edit">
+						<input type="hidden" name="id" value="{{ listUser['id'] }}">
+						<input type="submit" value="Edit">
+					</form>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</body>
+</html>

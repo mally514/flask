@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Edit</h1>
+	<form method="post" action="/update">
+		{% for listUser in user %}
+			id<input type="hidden" name="id" value="{{ listUser['id'] }}">
+			Name<input type="type" name="name" value="{{ listUser['name'] }}">
+			Username<input type="type" name="username" value="{{ listUser['username'] }}">
+			Password<input type="pasword" name="password" value="{{ listUser['password'] }}">
+			<input type="submit" value=" update">
+		{% endfor %}
+	</form>
+</body>
+</html>
